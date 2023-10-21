@@ -2,9 +2,11 @@ import React from 'react';
 import "./styles/styles.css"
 import Link from 'next/link';
 
+
 export default function Home() {
   return (
-    <div>
+   
+     <div>
       <nav className='flex flex-col lg:flex-row items-center bg-orange-600 p-6'>
         <div className='flex items-center flex-shrink-0 text-white mr-6 mb-2 lg:mb-0'>
           <span className='font-semibold text-xl tracking-wider'>
@@ -29,5 +31,7 @@ export default function Home() {
         </div>
       </nav>
     </div>
+
+   
   );
 }
