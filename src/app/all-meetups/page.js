@@ -25,7 +25,7 @@ const AllMeetUps = () => {
                 <Card.Title>{meetup.name}</Card.Title>
                 <Card.Text>Address: {meetup.address}</Card.Text>
                 <Card.Text>Time: {meetup.time}</Card.Text>
-                <Link href={`/showdetails/${meetup.id}`} passHref>
+                <Link href={`/all-meetups/${meetup.id}`}>
                 <button className="bg bg-orange-500 border-orange-500  hover:bg-orange-700 hover:border-orange-700
                    text-white p-2 rounded-lg" >Show Details</button>
                 </Link>
