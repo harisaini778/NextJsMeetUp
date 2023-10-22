@@ -1,5 +1,10 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
+//import "../../node_modules/bootstrap/dist/js/bootstrap";
+//import "../../node_modules/bootstrap/dist/css/bootstrap";
+import "bootstrap/dist/css/bootstrap.css";
+//import "bootstrap/dist/js/bootstrap";
+
 import Providers from './store/Features/page';
 
 const inter = Inter({ subsets: ['latin'] });

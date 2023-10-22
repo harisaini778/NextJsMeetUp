@@ -1,37 +1,44 @@
-import React from 'react';
-import "./styles/styles.css"
-import Link from 'next/link';
+"use client"
 
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import AllMeetUps from './all-meetups/page';
 
 export default function Home() {
+  const [meetUpIsVisible, setMeetUpIsVisible] = useState(false);
+
+  const showMeetUpHandler = () => {
+    setMeetUpIsVisible((prevState) => !prevState);
+  };
+
   return (
-   
-     <div>
-      <nav className='flex flex-col lg:flex-row items-center bg-orange-600 p-6'>
-        <div className='flex items-center flex-shrink-0 text-white mr-6 mb-2 lg:mb-0'>
-          <span className='font-semibold text-xl tracking-wider'>
-            NextJsMeetUps
-          </span>
-        </div>
-        <div className='w-full flex lg:flex-row lg:items-center lg:w-auto lg:justify-end sm:justify-center'>
-          <div className='lg:mr-2 lg:mb-0'>
-            <div className="bg-orange-700 rounded-lg inline-block p-2 hover:bg-orange-800 mr-2 ">
-              <Link href="/all-meetups" className='text-orange-100 hover:text-white'>
-                Show All Meetups
-              </Link>
-            </div>
+    <div>
+      <Navbar  variant="dark" className="p-4 bg-orange-500">
+        <Navbar.Brand>
+          NextJsMeetUps
+        </Navbar.Brand>
+        <Nav className="ml-auto">
+          <div className="mr-2">
+            <button onClick={showMeetUpHandler} className=" bg-orange-600 border-orange-600  hover:bg-orange-700 hover:border-orange-700
+            text-white p-2 rounded-lg"
+            >
+              Show All Meetups
+            </button>
           </div>
           <div>
-            <div className='bg-orange-700 rounded-lg hover:bg-orange-800 p-2 '>
-              <Link href="/add-meetups" className='text-orange-100 hover:text-white'>
+            <Link href="/add-meetups">
+              <button className=" bg-orange-600 border-orange-600  hover:bg-orange-700 hover:border-orange-700
+               text-white p-2 rounded-lg" >
                 Add a new meetup
-              </Link>
-            </div>
+              </button>
+            </Link>
           </div>
-        </div>
-      </nav>
+        </Nav>
+      </Navbar>
+      <Container className='mt-5'>
+         {meetUpIsVisible && <AllMeetUps />}
+      </Container>
     </div>
-
-   
   );
 }
