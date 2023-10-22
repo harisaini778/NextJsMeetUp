@@ -37,7 +37,7 @@ const meetupsSlice = createSlice({
   initialState,
   reducers: {
     addMeetup: (state, action) => {
-      state.push(action.payload);
+      state.initialMeetups.push(action.payload);
     },
     showAllMeetups: (state) => {
       return state;
