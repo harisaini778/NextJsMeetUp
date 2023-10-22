@@ -11,7 +11,7 @@ const initialState = {
       address: '123 Street, City',
       time: '2023-10-20 14:00:00',
       image: 'https://source.unsplash.com/featured/?city',
-      description: 'Description for Sample Meetup 1', // New key-value pair for description
+      description: 'Description for Sample Meetup 1', 
     },
     {
       id: 2,

@@ -27,6 +27,15 @@ const AddMeetUp = () => {
         };
     }, []);
 
+    const clearFormHandler = () => {
+
+        nameRef.current.value = "";
+        addressRef.current.value = "";
+        timeRef.current.value = "";
+        imageRef.current.value = "";
+        descriptionRef.current.value = "";
+    }
+
     const addNewMeetUpHandler = () => {
         const obj = {
             id: Math.floor(Math.random() * 1000) + 1,
@@ -37,6 +46,9 @@ const AddMeetUp = () => {
             description: descriptionRef.current.value,
         };
         dispatch(addMeetup(obj));
+    
+        clearFormHandler();
+    
     };
 
     return (
