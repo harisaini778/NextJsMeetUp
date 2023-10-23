@@ -4,6 +4,7 @@ import { Card, Container, Row, Col } from "react-bootstrap";
 import { initialMeetups } from "../store/Features/slices/page";
 import Link from "next/link";
 import "../styles/styles.css";
+//import { getStaticProps } from "next/dist/build/templates/pages";
 
 const AllMeetUps = () => {
   const meet = useSelector((state) => state.meetups.initialMeetups);
@@ -38,4 +39,12 @@ const AllMeetUps = () => {
   );
 };
 
+// export const getStaticProps = async () => {
+
+//   const meet = useSelector((state) => state.meetups.initialMeetups);
+//   const meetups = meet ? Object.values(meet) : [];
+//   return {
+//     props: { DUMMY_MEETUPS: meetups },
+//   };
+// };
 export default AllMeetUps;
