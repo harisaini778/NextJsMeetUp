@@ -2,46 +2,70 @@
 "use client"
 
 import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk } from "@reduxjs/toolkit";
+
+
+
+
 
 const initialState = {
-  initialMeetups: [
-    {
-      id: 1,
-      name: 'Sample Meetup 1',
-      address: '123 Street, City',
-      time: '2023-10-20 14:00:00',
-      image: 'https://source.unsplash.com/featured/?city',
-      description: 'Description for Sample Meetup 1', 
-    },
-    {
-      id: 2,
-      name: 'Sample Meetup 2',
-      address: '456 Avenue, Town',
-      time: '2023-10-21 16:00:00',
-      image: 'https://source.unsplash.com/featured/?buildings',
-      description: 'Description for Sample Meetup 2', 
-    },
-    {
-      id: 3,
-      name: 'Sample Meetup 3',
-      address: 'Aerodom, Town',
-      time: '2023-10-21 16:00:00',
-      image: 'https://source.unsplash.com/featured/?london',
-      description: 'Description for Sample Meetup 3', 
-    },
-  ]
+  initialMeetups: [],
 };
+
+export const fetchAllMeetUps = createAsyncThunk(
+  'slices/fetchAllMeetUps',
+  async (_, thunkAPI) => {
+    try {
+      const response = await fetch('http://localhost:3000/api/FetchMeetUps');
+      
+      if (!response.ok) {
+        throw new Error("Failed to fetch meetups");
+      }
+      
+      const data = await response.json();
+
+      console.log("Fetched data:", data); 
+
+      return data; 
+    } catch (error) {
+      throw error;
+    }
+  }
+);
+
+
+
+// export const startFetchingAllMeetUps = (dispatch) => {
+
+//   const fetchInterval = 2000;
+
+//   const fetchDataAndDispatch = () => {
+//     dispatch(fetchAllMeetUps());
+//   }
+
+//   fetchDataAndDispatch();
+//   setInterval(fetchDataAndDispatch, fetchInterval);
+
+// }
 
 const meetupsSlice = createSlice({
   name: 'meetups',
   initialState,
   reducers: {
-    addMeetup: (state, action) => {
-      state.initialMeetups.push(action.payload);
-    },
+    // addMeetup: (state, action) => {
+    //   state.initialMeetups.push(action.payload);
+    // },
     showAllMeetups: (state) => {
       return state;
     },
+  },
+  extraReducers: (builder) => {
+    
+    builder
+      .addCase(fetchAllMeetUps.fulfilled, (state, action)  => {
+        state.initialMeetups = action.payload;
+    })
+
   },
 });
 
