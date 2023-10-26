@@ -1,6 +1,6 @@
 "use client"
 
-import { initialMeetups } from "../../store/Features/slices/page"
+import { initialMeetups } from "../../store/Features/slices/datastore"
 
 import { useSelector } from "react-redux";
 

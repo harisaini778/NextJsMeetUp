@@ -5,7 +5,7 @@ import './globals.css';
 import "bootstrap/dist/css/bootstrap.css";
 //import "bootstrap/dist/js/bootstrap";
 
-import Providers from './store/Features/page';
+import Providers from './store/Features/providerComponent';
 
 const inter = Inter({ subsets: ['latin'] });
 

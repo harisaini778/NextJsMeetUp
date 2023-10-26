@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Card, Container, Row, Col } from "react-bootstrap";
-import { fetchAllMeetUps } from "../store/Features/slices/page";
+import { fetchAllMeetUps } from "../store/Features/slices/datastore";
 import Link from "next/link";
 import "../styles/styles.css";
 
