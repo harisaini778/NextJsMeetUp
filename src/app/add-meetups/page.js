@@ -1,7 +1,8 @@
 "use client"
 
 import { Card, Form } from "react-bootstrap";
-import { useRef } from "react";
+import { useRef,Fragment } from "react";
+import Head from "next/head";
 //import { useDispatch } from "react-redux";
 //import { addMeetup } from "../store/Features/slices/page";
 
@@ -61,6 +62,12 @@ const addNewMeetUpHandler = async () => {
 
 
   return (
+    <Fragment>
+       <Head>
+        <title>Next Js MeetUps</title>
+        <meta name='description'
+        content="Add New MeetUp"/>
+    </Head>
     <div
       style={{
         display: "flex",
@@ -127,7 +134,8 @@ const addNewMeetUpHandler = async () => {
           </button>
         </Card.Footer>
       </Card>
-    </div>
+      </div>
+      </Fragment>
   );
 };
 

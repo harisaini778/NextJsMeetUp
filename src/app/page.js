@@ -1,9 +1,11 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useState,Fragment } from 'react';
 import Link from 'next/link';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import AllMeetUps from './all-meetups/page';
+import Head from "next/head";
+
 
 export default function Home() {
   const [meetUpIsVisible, setMeetUpIsVisible] = useState(true);
@@ -13,6 +15,13 @@ export default function Home() {
   };
 
   return (
+    <Fragment>
+
+     <Head>
+        <title>Next Js MeetUps</title>
+        <meta name='description' content="Add amazing meetups and explore new opportunities" />
+      </Head>
+
     <div>
       <Navbar expand="lg" variant="dark" className="p-4 bg-orange-500">
         <Container>
@@ -44,6 +53,7 @@ export default function Home() {
       <Container className="mt-5">
         {meetUpIsVisible && <AllMeetUps />}
       </Container>
-    </div>
+      </div>
+          </Fragment>
   );
 }

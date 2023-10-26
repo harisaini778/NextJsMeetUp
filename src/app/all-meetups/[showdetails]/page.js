@@ -4,12 +4,24 @@
 
 import { useSelector } from "react-redux";
 import { Card, Container } from "react-bootstrap";
+import { Fragment } from "react";
+import Head from "next/head";
 
 const ShowDetails = ({ params }) => {
   const details = useSelector((state) => state.meetups.initialMeetups);
   const detailsArr = details.find((meetup) => meetup._id === params.showdetails);
 
-  return (
+    return (
+      <Fragment>
+            
+     <Head>
+            
+                <title>{detailsArr.name}</title>
+                <meta name="description" content={detailsArr.description} />
+
+            </Head>
+
+
     <Container className="mt-5">
       <h1 style={{textAlign:"center"}}>Meetup Details</h1>
       {detailsArr && (
@@ -27,7 +39,8 @@ const ShowDetails = ({ params }) => {
           </Card.Body>
         </Card>
       )}
-    </Container>
+            </Container>
+                  </Fragment>
   );
 };
 
