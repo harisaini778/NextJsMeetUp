@@ -1,4 +1,8 @@
 "use client";
+
+//all-meetups/page.js
+
+
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Card, Container, Row, Col } from "react-bootstrap";
@@ -18,9 +22,9 @@ const AllMeetUps = () => {
   //console.log("Meetups:", meetups);
 
   const extractId = (meetup) => {
-    if (meetup && meetup._id && meetup._id.$oid) {
-      console.log(meetup._id.$oid);
-      return meetup._id.$oid;
+    if (meetup && meetup._id) {
+      console.log(meetup._id);
+      return meetup._id;
     }
     return null;
   };
@@ -42,7 +46,7 @@ const AllMeetUps = () => {
                 <Card.Title>{meetup.name}</Card.Title>
                 <Card.Text>Address: {meetup.address}</Card.Text>
                 <Card.Text>Time: {meetup.time}</Card.Text>
-                <Link href={`/all-meetups/${extractId(meetup)}`}>
+                <Link href={`/all-meetups/${meetup._id}`}>
                   <button className="bg bg-orange-500 border-orange-500  hover:bg-orange-700 hover:border-orange-700 text-white p-2 rounded-lg">Show Details</button>
                 </Link>
               </Card.Body>
