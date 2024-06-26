@@ -45,7 +45,7 @@ const addNewMeetUpHandler = async () => {
   }
 
   try {
-    const response = await fetch("https://next-js-meet-up-two.vercel.app/api/FetchMeetUps", {
+    const response = await fetch("next-js-meet-up-two.vercel.app/api/FetchMeetUps", {
       method: "POST",
       body: JSON.stringify(obj),
       headers: {
