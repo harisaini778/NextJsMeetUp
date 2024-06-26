@@ -16,7 +16,7 @@ export const fetchAllMeetUps = createAsyncThunk(
   'slices/fetchAllMeetUps',
   async (_, thunkAPI) => {
     try {
-      const response = await fetch('https://next-js-meet-up-two.vercel.app/api/FetchMeetUps');
+      const response = await fetch('http://localhost:3000/api/FetchMeetUps');
       
       if (!response.ok) {
         throw new Error("Failed to fetch meetups");

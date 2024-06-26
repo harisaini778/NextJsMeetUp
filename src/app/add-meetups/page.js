@@ -5,6 +5,11 @@ import { useRef,Fragment } from "react";
 import Head from "next/head";
 //import { useDispatch } from "react-redux";
 //import { addMeetup } from "../store/Features/slices/page";
+import { BsArrowLeft } from "react-icons/bs";
+import {Button} from "react-bootstrap";
+import { Container,Stack } from "react-bootstrap";
+import "./add-meetups.css";
+import Link from "next/link";
 
 
 const AddMeetUp = () => {
@@ -68,15 +73,21 @@ const addNewMeetUpHandler = async () => {
         <meta name='description'
         content="Add New MeetUp"/>
     </Head>
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        minHeight: "100vh",
-      }}
-    >
-      <Card style={{ width: "35vw", justifyContent: "center" }}>
+
+   <Container className="mt-4">
+    <Link href="/">
+    <Button className="go-back-btn m-1">
+    <Stack direction="horizontal" gap="2">
+    <BsArrowLeft/>
+    <div>Go Back</div>
+    </Stack>
+      </Button>
+    </Link>
+   </Container>
+  
+
+  <Container className="add-meetup-container">
+      <Card>
         <Card.Header
           style={{
             backgroundColor: "rgb(234, 88, 12)",
@@ -134,7 +145,7 @@ const addNewMeetUpHandler = async () => {
           </button>
         </Card.Footer>
       </Card>
-      </div>
+      </Container>
       </Fragment>
   );
 };
